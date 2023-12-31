@@ -18,8 +18,14 @@ fn main() {
             }
         };
 
-        println!("{temperature} Celcius = {} Farenheit", convert_to_farenheit(temperature));
-        println!("{temperature} Farenheit = {} Celcius", convert_to_celcius(temperature));
+        println!(
+            "{temperature} Celcius = {} Farenheit",
+            convert_to_farenheit(temperature)
+        );
+        println!(
+            "{temperature} Farenheit = {} Celcius",
+            convert_to_celcius(temperature)
+        );
     }
 }
 

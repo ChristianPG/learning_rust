@@ -50,13 +50,13 @@ fn main() {
         width: 60,
         height: 50,
     };
-    println!(
-        "Can rect1 hold rect2? {}",
-        rect1.can_hold(&rect2)
-    );
+    println!("Can rect1 hold rect2? {}", rect1.can_hold(&rect2));
 
     // Associated function
-    println!("This is a square rectangle: {:#?}", Rectangle::create_square(3))
+    println!(
+        "This is a square rectangle: {:#?}",
+        Rectangle::create_square(3)
+    )
 }
 
 fn area(rectangle: &Rectangle) -> u32 {
