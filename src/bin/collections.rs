@@ -1,6 +1,9 @@
+use std::collections::HashMap;
+
 fn main() {
     play_with_vectors();
     play_with_strings();
+    play_with_hashmaps();
 }
 
 fn play_with_vectors() {
@@ -96,4 +99,38 @@ fn play_with_strings() {
     for b in "Зд".bytes() {
         println!("{b}");
     }
+}
+
+fn play_with_hashmaps() {
+    // Create an empty hash map
+    let mut scores = HashMap::new();
+
+    // Add two record to it
+    scores.insert(String::from("Blue"), 10);
+    scores.insert(String::from("Yellow"), 50);
+
+    // Access one of them using a key
+    let team_name = String::from("Blue");
+    let _score = scores.get(&team_name).copied().unwrap_or(0);
+
+    // iterate over the hash map
+    for (key, value) in &scores {
+        println!("{key}: {value}");
+    }
+
+    // Overwrite a value
+    scores.insert(String::from("Blue"), 25);
+
+    // Insert a new value only if the key doesn't exist
+    scores.entry(String::from("Yellow")).or_insert(75);
+    scores.entry(String::from("Red")).or_insert(50);
+
+    // Update a value based on previous value
+    let text = "hello world wonderful world";
+    let mut map = HashMap::new();
+    for word in text.split_whitespace() {
+        let count = map.entry(word).or_insert(0);
+        *count += 1;
+    }
+    println!("{:?}", map);
 }
