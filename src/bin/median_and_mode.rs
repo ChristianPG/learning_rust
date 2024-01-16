@@ -12,14 +12,16 @@ fn main() {
     let vector_length = initial_values.len();
 
     if vector_length % 2 == 0 {
-        _median = (initial_values[vector_length / 2] + initial_values[(vector_length / 2) - 1]) as f64 / 2.0;
+        _median = (initial_values[vector_length / 2] + initial_values[(vector_length / 2) - 1])
+            as f64
+            / 2.0;
     } else {
         _median = initial_values[(vector_length - 1) / 2] as f64;
     }
     println!("Median: {_median}");
 
     // Calculate the Mode
-    let mut mode_map = HashMap::<i32, i32>::new(); 
+    let mut mode_map = HashMap::<i32, i32>::new();
 
     for i in initial_values {
         let count = mode_map.entry(i).or_insert(0);
@@ -36,7 +38,7 @@ fn main() {
         } else if value == max_repetition {
             let key_as_string = key.to_string();
             _mode = format!("{_mode}, {key_as_string}");
-        } 
+        }
     }
     println!("Mode: {_mode}");
 }
